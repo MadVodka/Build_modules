@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<shop xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="shop_schema.xsd">
+
+    <category name="Games">
+        <subcategory name="Consoles">
+            <item>
+                <company>Sony</company>
+                <model>PS400</model>
+                <dateProduction>22-02-2018</dateProduction>
+                <color>Black</color>
+                <price>700</price>
+                <quantity>3</quantity>
+            </item>
+            <item>
+                <company>Microsoft</company>
+                <model>Xb100</model>
+                <dateProduction>18-10-2017</dateProduction>
+                <color>White</color>
+                <price>899</price>
+                <quantity>10</quantity>
+            </item>
+        </subcategory>
+
+        <subcategory name="Portable">
+            <item>
+                <company>Nintendo</company>
+                <model>SW100</model>
+                <dateProduction>07-02-2019</dateProduction>
+                <color>Purple-Blue</color>
+                <price>600</price>
+                <quantity>28</quantity>
+            </item>
+            <item>
+                <company>Sony</company>
+                <model>Vt200</model>
+                <dateProduction>09-09-2014</dateProduction>
+                <color>Black</color>
+                <price>400</price>
+                <quantity>0</quantity>
+            </item>
+        </subcategory>
+    </category>
+
+    <category name="Smartphones">
+        <subcategory name="iOS">
+            <item>
+                <company>Apple</company>
+                <model>ip110</model>
+                <dateProduction>20-09-2019</dateProduction>
+                <color>Orange</color>
+                <price>1100</price>
+                <quantity>34</quantity>
+            </item>
+            <item>
+                <company>Apple</company>
+                <model>ip800</model>
+                <dateProduction>11-09-2017</dateProduction>
+                <color>Black</color>
+                <price>600</price>
+                <quantity>9</quantity>
+            </item>
+        </subcategory>
+        <subcategory name="Android">
+            <item>
+                <company>Samsung</company>
+                <model>GS111</model>
+                <dateProduction>15-08-2019</dateProduction>
+                <color>Blue</color>
+                <price>1200</price>
+                <quantity>15</quantity>
+            </item>
+            <item>
+                <company>Huawei</company>
+                <model>Hr109</model>
+                <dateProduction>02-05-2018</dateProduction>
+                <color>Grey</color>
+                <price>559</price>
+                <quantity>2</quantity>
+            </item>
+        </subcategory>
+    </category>
+
+</shop>

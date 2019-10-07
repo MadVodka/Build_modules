@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- category and subcategory attribute -->
+    <xs:attribute name="name" type="xs:string"/>
+
+    <xs:element name="shop">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="category" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="category">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="subcategory" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute ref="name" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="subcategory">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="item" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute ref="name" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="model">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="[a-zA-Z]{2}[0-9]{3}"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <xs:simpleType name="custom_date_type">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[012])-([1-9][0-9]{3})"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="item">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="company" type="xs:string"/>
+                <xs:element ref="model"/>
+                <xs:element name="dateProduction" type="custom_date_type"/>
+                <xs:element name="color" type="xs:string"/>
+                <xs:element name="price" type="xs:decimal"/>
+                <xs:element name="quantity" type="xs:integer"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
