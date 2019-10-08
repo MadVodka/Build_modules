@@ -16,6 +16,12 @@
             <groupId>ivan.vatlin</groupId>
             <artifactId>xml_json_implementation</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.code.gson</groupId>
+                    <artifactId>gson</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 

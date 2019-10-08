@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<shop xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="shop_schema.xsd">
+
+    <category name="Games">
+        <subcategory name="Shooters">
+            <item>
+                <company>CS.GO</company>
+                <model>VS119</model>
+                <dateProduction>19-01-2014</dateProduction>
+                <color>White</color>
+                <price>150</price>
+                <quantity>9</quantity>
+            </item>
+            <item>
+                <company>RB6SG</company>
+                <model>Mo213</model>
+                <dateProduction>11-12-2018</dateProduction>
+                <color>Blue</color>
+                <price>200</price>
+                <quantity>8</quantity>
+            </item>
+        </subcategory>
+
+        <subcategory name="RPG">
+            <item>
+                <company>WOW</company>
+                <model>ne181</model>
+                <dateProduction>01-09-2004</dateProduction>
+                <color>Yellow</color>
+                <price>300</price>
+                <quantity>7</quantity>
+            </item>
+            <item>
+                <company>Witcher</company>
+                <model>BW892</model>
+                <dateProduction>18-10-2015</dateProduction>
+                <color>Black</color>
+                <price>499</price>
+                <quantity>0</quantity>
+            </item>
+        </subcategory>
+    </category>
+
+    <category name="Cameras">
+        <subcategory name="Mirror">
+            <item>
+                <company>Sony</company>
+                <model>Al800</model>
+                <dateProduction>04-11-2016</dateProduction>
+                <color>Asphalt</color>
+                <price>3000</price>
+                <quantity>15</quantity>
+            </item>
+            <item>
+                <company>Panasonic</company>
+                <model>gh187</model>
+                <dateProduction>27-03-2018</dateProduction>
+                <color>Black</color>
+                <price>2000</price>
+                <quantity>16</quantity>
+            </item>
+        </subcategory>
+    </category>
+
+</shop>
