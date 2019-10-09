@@ -1,4 +1,4 @@
-package ivan.vatlin.data;
+package ivan.vatlin.xml_json_implementation;
 
 import ivan.vatlin.data.entities.Shop;
 import ivan.vatlin.data.xml.XmlDataHolder;

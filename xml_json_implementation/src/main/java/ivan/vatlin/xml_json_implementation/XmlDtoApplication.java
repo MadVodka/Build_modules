@@ -1,6 +1,7 @@
-package ivan.vatlin.data;
+package ivan.vatlin.xml_json_implementation;
 
 import ivan.vatlin.data.entities.Category;
+import ivan.vatlin.data.xml.XmlDataHolder;
 import ivan.vatlin.xml_json_implementation.converter.XmlToDtoConverter;
 
 import javax.xml.bind.JAXBException;
@@ -14,7 +15,7 @@ public class XmlDtoApplication {
     public static void run() {
         String element = "category";
         try {
-            XmlToDtoConverter<Category> xmlToDtoConverter = new XmlToDtoConverter<>(PATH_TO_TEST_XML,
+            XmlToDtoConverter<Category> xmlToDtoConverter = new XmlToDtoConverter<>(XmlDataHolder.PATH_TO_TEST_XML,
                     Category.class, element);
             List<Category> categories = xmlToDtoConverter.getList();
             if (categories != null) {
@@ -34,7 +35,8 @@ public class XmlDtoApplication {
                         + attribute + "  и значением " + attributeValue + " не найден");
             }
         } catch (XMLStreamException e) {
-            System.out.println("Ошибка при чтении файла " + PATH_TO_TEST_XML);
+            e.printStackTrace();
+            System.out.println("Ошибка при чтении файла " + XmlDataHolder.PATH_TO_TEST_XML);
         } catch (JAXBException e) {
             e.printStackTrace();
             System.out.println("Ошибка при создании объектов из XML файла");

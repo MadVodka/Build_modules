@@ -1,4 +1,4 @@
-package ivan.vatlin.data;
+package ivan.vatlin.xml_json_implementation;
 
 public class Application {
     public static void main(String[] args) {
