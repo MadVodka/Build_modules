@@ -9,6 +9,8 @@ import ivan.vatlin.xml_json_implementation.validators.XmlValidator;
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 public class JsonXmlApplication {
     public static void run() {
@@ -20,14 +22,18 @@ public class JsonXmlApplication {
         String jsonResult = null;
 
         try {
-            jsonResult = jsonXmlConverter.convertXmlToJson(XmlDataHolder.PATH_TO_TEST_XML, classOfElement, element);
+            String xmlFilePath = getXmlPathFromProperty();
+            System.out.println(xmlFilePath);
+            jsonResult = jsonXmlConverter.convertXmlToJson(xmlFilePath, classOfElement, element);
 
             System.out.println("Conversion XML to JSON result:");
             System.out.println(jsonResult);
         } catch (JAXBException e) {
             System.out.println("Ошибка при создании объектов из XML файла");
         } catch (XMLStreamException e) {
-            System.out.println("Ошибка при чтении файла " + XmlDataHolder.PATH_TO_TEST_XML);
+            System.out.println("Ошибка при чтении xml файла");
+        } catch (IOException e) {
+            System.out.println("Невозможно получить путь до XML файла");
         }
 
         System.out.println();
@@ -52,5 +58,14 @@ public class JsonXmlApplication {
         } catch (XmlValidationException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    private static String getXmlPathFromProperty() throws IOException {
+        Properties properties = new Properties();
+        try (InputStream input = JsonXmlApplication.class.getClassLoader().getResourceAsStream("xml.properties")) {
+            properties.load(input);
+        }
+
+        return properties.getProperty("xml-path");
     }
 }

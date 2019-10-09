@@ -9,7 +9,7 @@ public class XmlStreamReaderFactory {
     private XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
 
     public XMLStreamReader getXmlStreamReader(String pathToXml) throws XMLStreamException {
-        InputStream inputStream = getClass().getResourceAsStream(pathToXml);
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(pathToXml);
         return xmlInputFactory.createXMLStreamReader(inputStream);
     }
 }

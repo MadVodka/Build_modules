@@ -1,21 +1,22 @@
 package ivan.vatlin.xml_json_implementation;
 
 import ivan.vatlin.data.entities.Category;
-import ivan.vatlin.data.xml.XmlDataHolder;
 import ivan.vatlin.xml_json_implementation.converter.XmlToDtoConverter;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
-
-import static ivan.vatlin.data.xml.XmlDataHolder.PATH_TO_TEST_XML;
+import java.util.Properties;
 
 public class XmlDtoApplication {
-
     public static void run() {
         String element = "category";
         try {
-            XmlToDtoConverter<Category> xmlToDtoConverter = new XmlToDtoConverter<>(XmlDataHolder.PATH_TO_TEST_XML,
+            String xmlFilePath = getXmlPathFromProperty();
+            System.out.println(xmlFilePath);
+            XmlToDtoConverter<Category> xmlToDtoConverter = new XmlToDtoConverter<>(xmlFilePath,
                     Category.class, element);
             List<Category> categories = xmlToDtoConverter.getList();
             if (categories != null) {
@@ -36,11 +37,23 @@ public class XmlDtoApplication {
             }
         } catch (XMLStreamException e) {
             e.printStackTrace();
-            System.out.println("Ошибка при чтении файла " + XmlDataHolder.PATH_TO_TEST_XML);
+            System.out.println("Ошибка при чтении xml файла");
         } catch (JAXBException e) {
             e.printStackTrace();
             System.out.println("Ошибка при создании объектов из XML файла");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Невозможно получить путь до XML файла");
         }
+    }
+
+    private static String getXmlPathFromProperty() throws IOException {
+        Properties properties = new Properties();
+        try (InputStream input = XmlDtoApplication.class.getClassLoader().getResourceAsStream("xml.properties")) {
+            properties.load(input);
+        }
+
+        return properties.getProperty("xml-path");
     }
 
     private static void printCategory(Category category) {
